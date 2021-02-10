@@ -6,9 +6,23 @@ let app = new Vue({
     movies: []
   },
   methods: {
-    searchMovie(){
+    search(){
       axios
         .get("https://api.themoviedb.org/3/search/movie", {
+          params: {
+            api_key: this.myApiKey,
+            query: this.query,
+            language: "it-IT"
+          }
+        })
+        .then((result) => {
+          this.movies = result.data.results;
+          console.log(this.movies);
+        })
+        .catch((error) => alert("errore"));
+
+      axios
+        .get("https://api.themoviedb.org/3/search/tv", {
           params: {
             api_key: this.myApiKey,
             query: this.query,

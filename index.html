@@ -12,11 +12,11 @@
 <body>
 
   <div id="app">
-    <input type="text" v-model="query" @keyup.enter="searchMovie">
-    <button type="button" name="button" @click="searchMovie">Search</button>
+    <input type="text" v-model="query" @keyup.enter="search">
+    <button type="button" name="button" @click="search">Search</button>
     <div v-for="movie in movies">
-      <p>{{movie.title}}</p>
-      <p>{{movie.original_title}}</p>
+      <p>{{movie.title}} {{movie.name}}</p>
+      <p>{{movie.original_title}} {{movie.original_name}}</p>
       <p>{{movie.original_language}}</p>
       <p>{{movie.vote_average}}</p>
     </div>
