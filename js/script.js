@@ -2,7 +2,8 @@ let app = new Vue({
   el: "#app",
   data: {
     query: "",
-    myApiKey: "f31c888cb565ce0a48390b228a0e9f6e"
+    myApiKey: "f31c888cb565ce0a48390b228a0e9f6e",
+    movies: []
   },
   methods: {
     searchMovie(){
@@ -15,7 +16,8 @@ let app = new Vue({
           }
         })
         .then((result) => {
-          console.log(result.data.results);
+          this.movies = result.data.results;
+          console.log(this.movies);
         })
         .catch((error) => alert("errore"));
     }
