@@ -16,8 +16,7 @@ let app = new Vue({
         }
       })
       .then((result) => {
-        this.movies = result.data.results;
-        console.log(this.movies);
+        this.movies.push(...result.data.results);
       })
       .catch((error) => alert("errore"));
 
@@ -30,8 +29,7 @@ let app = new Vue({
         }
       })
       .then((result) => {
-        this.movies = result.data.results;
-        console.log(this.movies);
+        this.movies.push(...result.data.results);
       })
       .catch((error) => alert("errore"));
     }
