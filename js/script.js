@@ -3,10 +3,14 @@ let app = new Vue({
   data: {
     query: "",
     myApiKey: "f31c888cb565ce0a48390b228a0e9f6e",
-    movies: []
+    movies: [],
+    tv : []
   },
   methods: {
     search(){
+
+      this.movies = [];
+      this.tv = [];
       axios
       .get("https://api.themoviedb.org/3/search/movie", {
         params: {
@@ -16,7 +20,7 @@ let app = new Vue({
         }
       })
       .then((result) => {
-        this.movies.push(...result.data.results);
+        this.movies = result.data.results;
       })
       .catch((error) => alert("errore"));
 
@@ -29,9 +33,17 @@ let app = new Vue({
         }
       })
       .then((result) => {
-        this.movies.push(...result.data.results);
+        this.movies = this.movies.concat(result.data.results);
+
       })
       .catch((error) => alert("errore"));
+    },
+    // funzione che divide x2 a cui passi il voto
+    trasformaVoto (voto){
+      return parseInt(voto / 2);
     }
+
+
+
   }
 });
