@@ -7,6 +7,7 @@
   <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
   <title>Document</title>
 </head>
 <body>
@@ -21,15 +22,15 @@
       </div>
     </div>
 
-    <div v-for="movie in movies">
+    <div class="box_film" v-for="movie in movies">
       <p>{{movie.title}} {{movie.name}}</p>
       <p>{{movie.original_title}} {{movie.original_name}}</p>
       <p>{{movie.original_language}}</p>
       <!-- ciclo for che stampa il voto ottenuto dall'arrotondamento utilizzando la funzione creata in vue -->
-      <i class="fas fa-star" v-for="i in trasformaVoto(movie.vote_average)">{{movie.vote_average}}</i>
-      <!-- <p v-for="i in trasformaVoto(movie.vote_average)">{{movie.vote_average}}</p>
-      <p v-for="i in (5-trasformaVoto(movie.vote_average))">{{stelle vuote}}</p> -->
-      <img v-if="movie.poster_path" :src="'https://image.tmdb.org/t/p/w500' + movie.poster_path" :alt="movie.poster_path">
+      <i class="fas fa-star" v-for="i in trasformaVoto(movie.vote_average)"></i>
+      <i class="far fa-star" v-for="i in (5-trasformaVoto(movie.vote_average))"></i>
+      <img class="poster" v-if="movie.poster_path" :src="'https://image.tmdb.org/t/p/w342' + movie.poster_path" alt="..img/poster-placeholder.png">
+      <img :src="'img/' + movie.original_language + '.png'" :alt="movie.original_language">
     </div>
   </div>
 

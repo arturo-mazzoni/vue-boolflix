@@ -25,3 +25,30 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.box_film {
+  width: 300px;
+  height: 600px;
+  background-color: lightgrey;
+}
+
+.box_film .poster {
+  width: 60%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ewdfdsa */
