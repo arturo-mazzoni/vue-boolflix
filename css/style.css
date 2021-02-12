@@ -41,7 +41,7 @@ body {
   position: relative;
 }
 
-.box_film:hover {
+.box_film:hover .poster {
   opacity: 0.3;
 }
 
@@ -66,6 +66,27 @@ body {
 .backside_card img {
   width: 50px;
 }
+
+.backside_card i {
+  margin-top: 10px;
+}
+
+.lang {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.box_film {
+  align-self: flex-start;
+}
+
+.line-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 10;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 
 
 
