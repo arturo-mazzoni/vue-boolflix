@@ -22,16 +22,26 @@
       </div>
     </div>
 
-    <div class="box_film" v-for="movie in movies">
-      <p>{{movie.title}} {{movie.name}}</p>
-      <p>{{movie.original_title}} {{movie.original_name}}</p>
-      <p>{{movie.original_language}}</p>
-      <!-- ciclo for che stampa il voto ottenuto dall'arrotondamento utilizzando la funzione creata in vue -->
-      <i class="fas fa-star" v-for="i in trasformaVoto(movie.vote_average)"></i>
-      <i class="far fa-star" v-for="i in (5-trasformaVoto(movie.vote_average))"></i>
-      <img class="poster" v-if="movie.poster_path" :src="'https://image.tmdb.org/t/p/w342' + movie.poster_path" alt="..img/poster-placeholder.png">
-      <img :src="'img/' + movie.original_language + '.png'" :alt="movie.original_language">
+    <div class="main">
+      <div class="box_film" v-for="movie in movies">
+
+        <img class="poster"  v-if="movie.poster_path" :src="'https://image.tmdb.org/t/p/w342' + movie.poster_path">
+        <img class="poster"  v-else src="img/poster-placeholder.png">
+
+        <div class="backside_card">
+          <p>Titolo: {{movie.title}} {{movie.name}}</p>
+          <p>titolo originale: {{movie.original_title}} {{movie.original_name}}</p>
+          <p>Overview: {{movie.overview}}</p>
+          <i class="fas fa-star" v-for="i in trasformaVoto(movie.vote_average)"></i>
+          <i class="far fa-star" v-for="i in (5-trasformaVoto(movie.vote_average))"></i>
+          <div>
+            <img :src="'img/' + movie.original_language + '.png'" :alt="movie.original_language">
+          </div>
+        </div>
+
+      </div>
     </div>
+
   </div>
 
   <script src="js/script.js" charset="utf-8"></script>
